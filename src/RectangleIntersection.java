@@ -91,19 +91,19 @@ class RectangleIntersection {
      * Method to determine if two rectangles are overlapping using the top left corner and bottom right corner of each
      * rectangle. We can determine that the rectangle is NOT overlapping if one rectangle is completely to the left or
      * above the other rectangle, and thus if these are not true then the rectangles are overlapping.
-     * @param rectangle1: The first rectangle (order does not matter however)
-     * @param rectangle: The second rectangle (could also just be the "other" rectangle)
+     * @param rectangle1overlap: The first rectangle (order does not matter however)
+     * @param rectangle2overlap: The second rectangle (could also just be the "other" rectangle)
      * @return whether or not the rectangles are overlapping
      */
-    private static boolean isOverlapping (Rectangle rectangle1, Rectangle rectangle){
+    private static boolean isOverlapping (Rectangle rectangle1overlap, Rectangle rectangle2overlap){
 
         /* If one rectangle is on the left side of the left edge of the other */
-        if (rectangle1.topLeft()[0] > rectangle.bottomRight()[0]
-                || rectangle.topLeft()[0] > rectangle1.bottomRight()[0])
+        if (rectangle1overlap.topLeft()[0] > rectangle2overlap.bottomRight()[0]
+                || rectangle2overlap.topLeft()[0] > rectangle1overlap.bottomRight()[0])
             return false;
         /* If one rectangle is above the top edge of the other */
-        if (rectangle1.topLeft()[1] < rectangle2.bottomRight()[1]
-                || rectangle.topLeft()[1] < rectangle1.bottomRight()[1])
+        if (rectangle1overlap.topLeft()[1] < rectangle2overlap.bottomRight()[1]
+                || rectangle2overlap.topLeft()[1] < rectangle1overlap.bottomRight()[1])
             return false;
         /* if neither of these are true, the rectangles are intersecting */
         return  true;
